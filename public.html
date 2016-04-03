@@ -1,0 +1,69 @@
+<html>
+<head>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#ff').on('submit',function(){
+		if($('#dep').val() == ""){
+			alert("Please enter a Depture");
+			$('#dep').focus();
+			return false;
+		} else if ($('#arv').val() == ""){
+			alert("Please enter a Destination");
+			$('#arv').focus();
+			return false;
+		} else return true;
+	});
+});
+$(document).ready(function(){
+	$('#fyf').on('submit',function(){
+		if($('#passport').val==""){
+			alert("Please enter the Passport!");
+			$('#passport').focus();
+			return false;
+		} else if(('#pname').val==""){
+			alert("Please enter the Passenger's name");
+			$('#pname').focus();
+			return false;
+		} else return true;
+	})
+});
+</script>
+<center>
+<h1>Public Inquiry</h1>
+<div>
+	<form action="findflights.php" id="ff" method="post">
+		<div class="left">
+		<lable for="dep">Flying From: </lable>
+		<br>
+		<input type="text" name="dep" id="dep"><br />
+		</div>
+		<div class="right">
+		<lable for="arv">Flying To: </lable>
+		<br>
+		<input type="text" name="arv" id="arv"><br />
+		</div>
+		<div>
+			<lable for="dept">Departing Time: </lable>
+			<br>
+			<input name="dept" id="dept" type="date" placeholder ="dd/mm/yyyy"><br />
+		</div>
+		<input type="submit" value="Find Flights"></br>
+	</form>
+	<form action="findyourflights.php" id="fyf" method="post">
+		<div>
+			<lable for="passport">Passport No.: </lable>
+			<br>
+			<input name="passport" id="passport" type="text"><br />
+		</div>
+		<div>
+			<lable for="pname">Passenger Name: </lable>
+			<br>
+			<input name="pname" id="pname" type="text"><br />
+		</div>
+		<input type="submit" value="Find Your Flights"></br>
+	</form>
+</div>
+</html>
