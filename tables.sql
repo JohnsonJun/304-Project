@@ -1,6 +1,18 @@
 create database Project304;
-
 use Project304;
+
+drop table if exists flights;
+drop table if exists passengers;
+drop table if exists companies;
+drop table if exists crews;
+drop table if exists gate;
+drop table if exists takes;
+drop table if exists has;
+drop table if exists works_in_c;
+drop table if exists works_in_f;
+drop table if exists stops_at;
+
+
 create table flights (flightNo varchar(30) not null,
 	departureLoc varchar(20) not null,
 	destination varchar(20) not null,
@@ -78,6 +90,10 @@ insert into flights values('WS1910', 'Vancouver', 'Orlando', '2016-04-01 07:00:0
 insert into flights values('AA504', 'Vancouver', 'Phoenix', '2016-04-01 9:30:00', '2016-04-01 12:00:00');
 insert into flights values('AA7148', 'Vancouver', 'Los Angeles', '2016-04-02 12:00:00', '2016-04-01 15:30:00');
 insert into flights values('CA991', 'Vancouver', 'Beijing', '2016-04-01 12:30:00', '2016-04-02 8:30:00');
+insert into flights values('AC238', 'Vancouver', 'Orlando', '2016-04-03 11:30:00', '2016-04-03 6:30:00');
+insert into flights values('AC240', 'Vancouver', 'Phoenix', '2016-04-05 18:30:00', '2016-04-05 23:30:00');
+insert into flights values('AC288', 'Vancouver', 'Los Angeles', '2016-04-03 10:55:00', '2016-04-03 2:40:00');
+insert into flights values('AC92', 'Vancouver', 'Beijing', '2016-04-04 11:30:00', '2016-04-05 7:30:00');
 
 insert into passengers values('cd12345','Jessica');
 insert into passengers values('ab12345','xiaomai');
@@ -85,6 +101,12 @@ insert into passengers values('ab34567','Joe');
 insert into passengers values('ef33333','Frank');
 insert into passengers values('gh44444','Christine');
 insert into passengers values('ij12345','Lee');
+insert into passengers values('aa11111','Lynn');
+insert into passengers values('aa22222','Kyle');
+insert into passengers values('aa33333','Johnson');
+insert into passengers values('aa44444','Tony');
+insert into passengers values('aa55555','Johnson');
+
 
 insert into crews values('987654321','Kevin','2014-09-01');
 insert into crews values('123456777','Jack','2012-03-15');
@@ -103,6 +125,11 @@ insert into takes values('6A','AC156','ab34567','','business');
 insert into takes values('4F','WS1910','ef33333','wheelchair','first');
 insert into takes values('13C','AA7148','gh44444','senior','economy');
 insert into takes values('9B','CA991','ij12345','','business');
+insert into takes values('1H','AC156','aa11111','','first');
+insert into takes values('3B','AC156','aa22222','','business');
+insert into takes values('15A','AC156','aa33333','','economy');
+insert into takes values('30C','AC156','aa44444','','economy');
+insert into takes values('8C','AC156','aa55555','','first');
 
 insert into has values('Air Canada','AC8083');
 insert into has values('Air Canada','AC156');
@@ -110,6 +137,11 @@ insert into has values('WestJet','WS1910');
 insert into has values('American Airlines','AA504');
 insert into has values('American Airlines','AA7148');
 insert into has values('Air China','CA991');
+insert into has values('Air Canada','AC238');
+insert into has values('Air Canada','AC240');
+insert into has values('Air Canada','AC288');
+insert into has values('Air Canada','AC92');
+
 
 insert into works_in_c values('WestJet','987654321','flight attendant');
 insert into works_in_c values('American Airlines','123456777','flight attendant');
@@ -129,5 +161,9 @@ insert into stops_at values('WS1910',3);
 insert into stops_at values('AA504',4);
 insert into stops_at values('AA7148',1);
 insert into stops_at values('CA991',3);
+insert into stops_at values('AC238',2);
+insert into stops_at values('AC240',4);
+insert into stops_at values('AC288',2);
+insert into stops_at values('AC92',1);
 
 
