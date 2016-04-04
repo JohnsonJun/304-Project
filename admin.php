@@ -32,10 +32,11 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 	?>
 	<br>
 	<br>
+	<h1>Change Gate</h1>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-		<lable for="flight">Enther the Flight No: </lable>
+		<lable for="flight"><div style = 'font-size:large'>Enther the Flight No: </lable></div>
 		<input type="text" id="flight" name="flight"><br />
-		<lable for="gate">Change Gate for flight: </lable>
+		<lable for="gate"><div style = 'font-size:large'>Change Gate for flight: </lable></div>
 		<input type="text" id="gate" name="gate"><br />
 		<input type="submit" value="Submit Request"><br />
 	</form>
@@ -63,14 +64,15 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 	?>
 	<br>
 	<br>
+	<h1>Cancel Flight</h1>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-		<lable for="cf">Cancel the Flight: </lable>
+		<lable for="cf"><div style = 'font-size:large'> </lable>
 		<input type="text" id="cflight" name="cflight" placeholder="Enter the Flight No."><br/>
 		<input type="submit" value="Comfirm"><br />
 	</form>
 	-------------------------------------------------------------------------------------------------------------------------------------------------
 	<br>
-	<p1>Change Special Assistant for Passenger</p1>
+	<h1>Change Special Assistant for Passenger</h1>
 		<br>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 		<div>
