@@ -31,27 +31,27 @@ create table gate (gateNo int not null,
     PRIMARY KEY(gateNo)	
 );
 
-create table takes(seatNo varchar(10) not null,
+create table takes (seatNo varchar(10) not null,
 	flightNo varchar(30) not null,
 	passportNo varchar(10) not null,
 	specialAssistant varchar(30),
 	class varchar(10) not null
 );
 
-create table has(companyName varchar(20) not null,
+create table has (companyName varchar(20) not null,
     flightNo varchar(30) not null
 );
 
-create table works_in_c(companyName varchar(20) not null,
+create table works_in_c (companyName varchar(20) not null,
     sin int not null,
 	crewTitle varchar(30) not null
 );
 
-create table works_in_f(flightNo varchar(30) not null,
+create table works_in_f (flightNo varchar(30) not null,
     sin int not null
 );
 
-create table stops_at(flightNo varchar(30) not null,
+create table stops_at (flightNo varchar(30) not null,
     gateNo int not null
 );
 
@@ -66,3 +66,68 @@ ALTER TABLE works_in_f ADD FOREIGN KEY(flightNo) references flights(flightNo);
 ALTER TABLE works_in_f ADD FOREIGN KEY(sin) references crews(sin);
 ALTER TABLE stops_at ADD FOREIGN KEY(flightNo) references flights(flightNo);
 ALTER TABLE stops_at ADD FOREIGN KEY(gateNo) references gate(gateNo);
+
+insert into companies values ('Air Canada', 1);
+insert into companies values ('American Airlines', 2);
+insert into companies values ('WestJet', 3);
+insert into companies values ('Air China', 4);
+	
+insert into flights values('AC8083', 'Vancouver', 'Victoria', '2016-04-01 12:00:00', '2016-04-01 13:30:00' );	
+insert into flights values('AC156', 'Vancouver', 'Toronto', '2016-04-01 11:00:00', '2016-04-01 16:30:00');
+insert into flights values('WS1910', 'Vancouver', 'Orlando', '2016-04-01 07:00:00', '2016-04-01 15:30:00');
+insert into flights values('AA504', 'Vancouver', 'Phoenix', '2016-04-01 9:30:00', '2016-04-01 12:00:00');
+insert into flights values('AA7148', 'Vancouver', 'Los Angeles', '2016-04-02 12:00:00', '2016-04-01 15:30:00');
+insert into flights values('CA991', 'Vancouver', 'Beijing', '2016-04-01 12:30:00', '2016-04-02 8:30:00');
+
+insert into passengers values('cd12345','Jessica');
+insert into passengers values('ab12345','xiaomai');
+insert into passengers values('ab34567','Joe');
+insert into passengers values('ef33333','Frank');
+insert into passengers values('gh44444','Christine');
+insert into passengers values('ij12345','Lee');
+
+insert into crews values('987654321','Kevin','2014-09-01');
+insert into crews values('123456777','Jack','2012-03-15');
+insert into crews values('123456888','Kim','2013-09-25');
+insert into crews values('123456789','erika','2015-01-01');
+
+insert into gate values(1,'t1');
+insert into gate values(2,'t2');
+insert into gate values (3,'t1');
+insert into gate values (4, 't2');
+insert into gate values (5, 't1');
+
+insert into takes values('15D','AC8083','cd12345','child','economy');
+insert into takes values('1C','AC8083','ab12345','','first');
+insert into takes values('6A','AC156','ab34567','','business');
+insert into takes values('4F','WS1910','ef33333','wheelchair','first');
+insert into takes values('13C','AA7148','gh44444','senior','economy');
+insert into takes values('9B','CA991','ij12345','','business');
+
+insert into has values('Air Canada','AC8083');
+insert into has values('Air Canada','AC156');
+insert into has values('WestJet','WS1910');
+insert into has values('American Airlines','AA504');
+insert into has values('American Airlines','AA7148');
+insert into has values('Air China','CA991');
+
+insert into works_in_c values('WestJet','987654321','flight attendant');
+insert into works_in_c values('American Airlines','123456777','flight attendant');
+insert into works_in_c values('Air China','123456888','flight attendant');
+insert into works_in_c values('Air Canada','123456789','captain');
+
+
+
+insert into works_in_f values('WS1910','987654321');
+insert into works_in_f values('AA7148','123456777');
+insert into works_in_f values('CA991','123456888');
+insert into works_in_f values('AC8083','123456789');
+
+insert into stops_at values('AC8083',1);
+insert into stops_at values('AC156',2);
+insert into stops_at values('WS1910',3);
+insert into stops_at values('AA504',4);
+insert into stops_at values('AA7148',1);
+insert into stops_at values('CA991',3);
+
+

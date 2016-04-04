@@ -21,7 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(!empty($_POST["cpname"])){
 		$cpname = $_POST["cpname"];
 		$cpname = $cpname."%"; 	
-		$s1= "SELECT flightNo FROM flights WHERE companyName LIKE '$cpname' ";
+		$s1= "SELECT h.flightNo FROM has h WHERE h.companyName LIKE '$cpname' ";
+		//echo $s1;
 		$r1=$conn->query($s1);
 		printf("Fond Flight: ");
 		while($row = $r1->fetch_assoc()){
@@ -46,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(!empty($_POST["fn"])){
 		$fn = $_POST["fn"]; 	
-		$s1= "SELECT COUNT(DISTINCT p.name) FROM passengers p WHERE p.flightNo LIKE '$fn'";
+		$s1= "SELECT COUNT(DISTINCT t.passportNo) FROM takes t WHERE t.flightNo LIKE '$fn'";
 		$r1=$conn->query($s1);
 		$row= $r1->fetch_row();
 		printf("Number of passengers in %s: %d",$fn,$row[0]);
