@@ -1,15 +1,23 @@
 <html>
+<head>
+	<title>Login Page
+	</title>
+</head>
+<center>
+	<body style="background:url('http://www.aurumyatra.com/images/flight-5.jpg') top center no-repeat; ">
+<h1>Welcome to Flight Checking API</h1>
 <div>
 	<form action="login.php" method="post">
 		<input type="text" name="username" value="public" style="display:none"></br>
 		<input type="password" name="password" value="public" style="display:none"></br>
-	<button type="submit" value="LOGIN">Public Login</button>
+	<div style = 'font-size:large'>For Public User,Please Click the "Public Login" Button Below</div><br><button type="submit" value="LOGIN">Public Login</button>
 </form>
 </div>
 <br>
 <br>
 <div>
 	<form action="login.php" method="post" >
+	<div style = 'font-size:large'>For Admin User, Please Login Here</div></br>
 	Manager id: <input type="text" name="username"></br>
 	Password: <input type="password" name="password"></br>
 	<input type="submit" value="LOGIN" /></br>
@@ -20,4 +28,6 @@
 
 <br />
 </div>
+</body>
+</center>
 </html>
