@@ -15,7 +15,7 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 <?php
 $pass = $_POST["passport"];
 $pname = $_POST["pname"];
-$q1 = "SELECT * FROM passengers p, flights f WHERE p.flightNo = f.flightNo AND p.name = '$pname' AND p.passportNo = '$pass'";
+$q1 = "SELECT * FROM passengers p, flights f, takes t, stops_at s WHERE p.passportNo = t.passportNo AND p.name = '$pname' AND p.passportNo = '$pass' AND f.flightNo=t.flightNo AND f.flightNo = s.flightNo";
 //echo "<br>";
 //echo $q1;
 echo "<h1>".$pname."'s Boarding Pass</h1>";
@@ -28,8 +28,8 @@ while($row = $r1->fetch_assoc()){
 		<div style='border:1px; display:inline-block; font-size:larger'>FlightNo:<br> %s</div>
 		<div style='border:1px; display:inline-block; font-size:larger'>DepartureFrom:<br> %s</div>
 		<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
-		<div style='border:1px; display:inline-block; font-size:larger'>Company:<br> %s</div><br>
-		You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div>", $row["class"],$row["seatNo"],$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]);
+		<br>
+		You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div>", $row["class"],$row["seatNo"],$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"]);
 }
 ?>
 </body>

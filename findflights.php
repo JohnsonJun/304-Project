@@ -33,20 +33,20 @@ if($_POST["dept"] ==""){
 			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]);
 		$deptime = new DateTime($row["departureTime"]);
 		$arvtime = new DateTime($row["arrivalTime"]);
-		echo "<br>";
 		printf("<div style = 'font-size:large'>DepTime: ");
 		printf($deptime->format("Y-m-d H:i:s"));
 		printf("</div>");
-		
 		printf("<div style = 'font-size:large'>ArvTime: ");
 		printf($arvtime->format("Y-m-d H:i:s"));
+		printf("<br>");
+		printf("------------------------------------------------------------------");
 		printf("</div>");
 
 	}
 } else {
 	$dept = $_POST["dept"];
 	$dept = $dept ."_%";
-	$q2 = "SELECT * FROM flights WHERE departureLoc LIKE '$dep' AND destination LIKE '$des' AND departureTime LIKE '$dept'";
+	$q2 = "SELECT * FROM flights f, stops_at s, has h WHERE departureLoc LIKE '$dep' AND destination LIKE '$des' AND departureTime LIKE '$dept' AND s.flightNo=f.flightNo AND h.flightNo = f.flightNo";
 	//echo $q2;
 	$r2 = $conn->query($q2);
 	//echo "<br>";
@@ -62,12 +62,14 @@ if($_POST["dept"] ==""){
 			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 
 		$deptime = new DateTime($row["departureTime"]);
 		$arvtime = new DateTime($row["arrivalTime"]);
-		echo "<br>";
-		printf("<div style = 'font-size:large'>DepTime: </div>");
+		printf("<div style = 'font-size:large'>DepTime: ");
 		printf($deptime->format("Y-m-d H:i:s"));
-		echo "<br>";
-		printf("<div style = 'font-size:large'>ArvTime: </div>");
+		printf("</div>");
+		printf("<div style = 'font-size:large'>ArvTime: ");
 		printf($arvtime->format("Y-m-d H:i:s"));
+		printf("<br>");
+		printf("------------------------------------------------------------------");
+		printf("</div>");
 	}
 }
 ?>
