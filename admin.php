@@ -31,6 +31,47 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 	}
 	?>
 	<br>
+	<br>
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+		<lable for="flight">Enther the Flight No: </lable>
+		<input type="text" id="flight" name="flight"><br />
+		<lable for="gate">Change Gate for flight: </lable>
+		<input type="text" id="gate" name="gate"><br />
+		<input type="submit" value="Submit Request"><br />
+	</form>
+	<br>
+	<br>
+	<?php
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		if(!empty($_POST["flight"])&& !empty($_POST["gate"])){
+			$gate=$_POST["gate"];
+			$flight=$_POST["flight"];
+			$q5="SELECT * FROM gate WHERE gateNo='$gate'";
+			$r5 =$conn->query($q5);
+			if($r5->num_rows == 0){
+				echo "No such Gate";
+			} else {
+				$q6="UPDATE stops_at SET gateNo='$gate' WHERE flightNo='$flight'";
+				if($conn->query($q6)==true){
+					echo "Update Successfully!";
+				} else {
+					echo "Error updating record: " . $conn->error;
+				}
+			}
+		}
+	}
+	?>
+	<br>
+	<br>
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+		<lable for="cf">Cancel the Flight: </lable>
+		<input type="text" id="cflight" name="cflight" placeholder="Enter the Flight No."><br/>
+		<input type="submit" value="Comfirm"><br />
+	</form>
+	-------------------------------------------------------------------------------------------------------------------------------------------------
+	<br>
+	<p1>Change Special Assistant for Passenger</p1>
+		<br>
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 		<div>
 			<lable for="passport">Passport No.: </lable>
