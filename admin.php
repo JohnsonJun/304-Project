@@ -31,11 +31,21 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 		if(!empty($_POST["passport"])&&!empty($_POST["pname"])){
 			$pass=$_POST["passport"];
 			$pname=$_POST["pname"];
-			$q2 = "SELECT * FROM passengers p WHERE p.passportNo = 'pass' AND p.name = pname";
-			$r2 = $conn($q2);
+			$q2 = "SELECT * FROM passengers p WHERE p.passportNo = '$pass' AND p.name = '$pname'";
+			echo $q2;
+			$r2 = $conn->query($q2);
+			echo $r2->num_rows;
 			while($row = $r2->fetch_assoc()){
-				printf("%s %s %s %s %s %s",$row["PassportNo"],$row["name"],$row["specialAssistant"],$row["class"],$row["seatNo"],$row["flightNo"]);
+				printf("%s %s %s %s %s %s",$row["passportNo"],$row["name"],$row["specialAssistant"],$row["class"],$row["seatNo"],$row["flightNo"]);
+				$self=htmlspecialchars($_SERVER['PHP_SELF']);
+				echo "<form action='$self' method='post'>
+				<textarea rows='4' cols='50' name='sa' id='sa' placeholder='Update Special Assistant'></textarea>
+				<br>
+				<input type='submit' value='Update Special Assistant'>
+				</form>";
 			}
+		} else if(!empty($_POST["sa"])){
+			$q3 = 
 		}
 	}
 	?>
