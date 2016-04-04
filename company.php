@@ -4,12 +4,13 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 ?>
 <!DOCTYPE HTML>
 <html>
+<body style="background:url('https://scstylecaster.files.wordpress.com/2013/12/flight-tracker.jpg') top center no-repeat; ">
 <center>
 <h1>Company Page</h1>
 <div>
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="cf">
 		<div>
-			<lable for="cpname">Enter your Company Name:</lable>
+			<lable for="cpname">Enter your Company Name:</lable><br>
 			<input type="text" name="cpname" id="cpname"><br />
 		</div>
 			<input type="submit" value="Check Your Company's Flights"></br>
@@ -34,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div>
 	<form method="post" action="company.php" id="cp">
 		<div>
-			<lable for="fn">Choose from above flight to see the number of passengers: </lable>
+			<lable for="fn">Choose from above flight to see the number of passengers: </lable><br>
 			<br>
 			<input type="text" name="fn" id="fn"><br />
 		</div>
@@ -52,4 +53,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 }
 ?>
+</body>
 </html>

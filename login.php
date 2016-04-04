@@ -16,7 +16,7 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 if(!$conn){
 	echo "Connect failed: %s\n", conn_connect_error();
 } else {
-	echo "Database Connected";
+	echo "<center><div style = 'font-size:large;color:#F00'>Login Failed,Wrong Username or Password!</div></center>";
 	echo "<br>";
 }
 if($public){

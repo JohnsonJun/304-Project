@@ -30,7 +30,7 @@ if($_POST["dept"] ==""){
 			<div style='border:1px; display:inline-block; font-size:larger'>Departure From:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Company:<br> %s</div><br>
-			<div style = 'font-size:large'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
+			<div style = 'font-size:large;font-weight:bold;font-style:italic'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
 			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 
 			$deptime = new DateTime($row["departureTime"]);
 		$arvtime = new DateTime($row["arrivalTime"]);
@@ -56,7 +56,7 @@ if($_POST["dept"] ==""){
 			<div style='border:1px; display:inline-block; font-size:larger'>Departure From:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Company:<br> %s</div><br>
-			<div style = 'font-size:large'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
+			<div style = 'font-size:large;font-weight:bold;font-style:italic'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
 			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 
 		$deptime = new DateTime($row["departureTime"]);
 		$arvtime = new DateTime($row["arrivalTime"]);
