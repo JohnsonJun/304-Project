@@ -9,10 +9,11 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 	<p1>Upcoming Flights</p1>
 	<br>
 	<?php
-	$q1="SELECT * FROM flights ORDER BY departureTime";
+	$q1="SELECT * FROM flights f, stops_at s WHERE f.flightNo = s. flightNo ORDER BY departureTime";
+	
 	$r1 = $conn->query($q1);
 	while($row = $r1->fetch_assoc()){
-		printf("%s %s %s",$row["flightNo"],$row["departureLoc"],$row["destination"]);
+		printf("%s %s %s %d",$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"]);
 		echo "<br>";
 	}
 	?>
@@ -45,6 +46,7 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 				</form>";
 			}
 		} else if(!empty($_POST["sa"])){
+
 		};
 	}
 	?>
