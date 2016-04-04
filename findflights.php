@@ -31,7 +31,15 @@ if($_POST["dept"] ==""){
 			<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Company:<br> %s</div><br>
 			<div style = 'font-size:large'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
-			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 	
+			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 
+			$deptime = new DateTime($row["departureTime"]);
+		$arvtime = new DateTime($row["arrivalTime"]);
+		echo "<br>";
+		printf("<div style = 'font-size:large'>DepTime: </div>");
+		printf($deptime->format("Y-m-d H:i:s"));
+		echo "<br>";
+		printf("<div style = 'font-size:large'>ArvTime: </div>");
+		printf($arvtime->format("Y-m-d H:i:s"));	
 	}
 } else {
 	$dept = $_POST["dept"];
