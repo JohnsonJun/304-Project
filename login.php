@@ -24,7 +24,7 @@ if($public){
 } else if($admin){
 	echo '<script type="text/javascript">window.location="admin.php";</script>';
 } else if($crew){
-	echo '<script type="text/javascript">window.location="crew.html";</script>';
+	echo '<script type="text/javascript">window.location="crew.php";</script>';
 } else if($company){
 	echo '<script type="text/javascript">window.location="company.php";</script>';
 }
