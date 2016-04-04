@@ -104,3 +104,9 @@ insert into gate values(2,'AC156');
 
 insert into gate values (3,'WS1910');
 
+<<<<<<< HEAD
+=======
+insert into gate values (4, '');
+
+insert into gate values (5, '');
+>>>>>>> db119defc53e52f22c1099a50ddc530d5857af25
