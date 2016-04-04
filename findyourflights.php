@@ -23,13 +23,13 @@ $r1 = $conn->query($q1);
 //echo "<br>";
 while($row = $r1->fetch_assoc()){
 	printf("
-		<div style='border:1px; display:inline-block; font-size:larger'>Class:<br> %s</div> 
-		<div style='border:1px; display:inline-block; font-size:larger'>SeatNo:<br>%s</div>
-		<div style='border:1px; display:inline-block; font-size:larger'>FlightNo:<br> %s</div>
-		<div style='border:1px; display:inline-block; font-size:larger'>DepartureFrom:<br> %s</div>
-		<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
+		<div style='border:1px solid; display:inline-block; font-size:larger'>Class:<br> %s</div> 
+		<div style='border:1px solid; display:inline-block; font-size:larger'>SeatNo:<br>%s</div>
+		<div style='border:1px solid; display:inline-block; font-size:larger'>FlightNo:<br> %s</div><br>
+		<div style='border:1px solid; display:inline-block; font-size:larger'>DepartureFrom:<br> %s</div>
+		<div style='border:1px solid; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 		<br>
-		You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div>", $row["class"],$row["seatNo"],$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"]);
+		<div  style = 'font-size:large;font-weight:bold;font-style:italic'>Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div>", $row["class"],$row["seatNo"],$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"]);
 }
 
 ?>
