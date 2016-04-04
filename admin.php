@@ -12,7 +12,7 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 	$q1="SELECT * FROM flights ORDER BY departureTime";
 	$r1 = $conn->query($q1);
 	while($row = $r1->fetch_assoc()){
-		printf("%s %s %s %s %s",$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"],$row["companyName"]);
+		printf("%s %s %s",$row["flightNo"],$row["departureLoc"],$row["destination"]);
 		echo "<br>";
 	}
 	?>
@@ -31,7 +31,7 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 		if(!empty($_POST["passport"])&&!empty($_POST["pname"])){
 			$pass=$_POST["passport"];
 			$pname=$_POST["pname"];
-			$q2 = "SELECT * FROM passengers p WHERE p.passportNo = '$pass' AND p.name = '$pname'";
+			$q2 = "SELECT * FROM passengers p, takes t, stops_at s WHERE p.passportNo = '$pass' AND p.name = '$pname' AND t.passportNo = '$pass' AND t.flightNo = s.flightNo";
 			echo $q2;
 			$r2 = $conn->query($q2);
 			echo $r2->num_rows;
@@ -45,7 +45,6 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 				</form>";
 			}
 		} else if(!empty($_POST["sa"])){
-			$q3 = 
-		}
+		};
 	}
 	?>

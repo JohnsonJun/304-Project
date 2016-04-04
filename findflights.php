@@ -29,15 +29,9 @@ if($_POST["dept"] ==""){
 			<div style='border:1px; display:inline-block; font-size:larger'>Departure From:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Company:<br> %s</div><br>
-<<<<<<< HEAD
-			<div style = 'font-size:large;font-weight:bold;font-style:italic'>You Will Be Boarding at Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
-			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]); 
-			$deptime = new DateTime($row["departureTime"]);
-=======
 			<div style = 'font-size:large'>The Boarding Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>"
 			,$row["flightNo"],$row["departureLoc"],$row["destination"],$row["companyName"],$row["gateNo"]);
 		$deptime = new DateTime($row["departureTime"]);
->>>>>>> 5d33168297afa57e88658cb1d0d3287c79d225df
 		$arvtime = new DateTime($row["arrivalTime"]);
 		printf("<div style = 'font-size:large'>DepTime: ");
 		printf($deptime->format("Y-m-d H:i:s"));
