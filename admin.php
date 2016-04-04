@@ -55,6 +55,26 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 		<input type="text" id="cflight" name="cflight" placeholder="Enter the Flight No."><br/>
 		<input type="submit" value="Comfirm"><br />
 	</form>
+	<?php
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		if(!empty($_POST["cflight"])){
+			$cflight=$_POST["cflight"];
+			$q6="SELECT * FROM takes WHERE flightNo ='$cflight'";
+			$r6 =$conn->query($q6);
+			if($r6->num_rows != 0){
+				echo "This Flight still have passenger, You cannot Cancel it";
+			} else {
+				$q7="DELETE FROM flights WHERE flightNo='cflight'";
+				if($conn->query($q7) == true){
+					echo "Delete Successfully";
+				}else{
+					echo "Error deleting record: " . $conn->error;
+				}
+			}
+		}
+	}
+	?>
+	<br>	
 	-------------------------------------------------------------------------------------------------------------------------------------------------
 	<br>
 	<p1>Change Special Assistant for Passenger</p1>
