@@ -17,7 +17,6 @@ $conn = new mysqli($servername, "cs304", "cs304", "project304");
 			<div style='border:1px; display:inline-block; font-size:larger'>Departure From:<br> %s</div>
 			<div style='border:1px; display:inline-block; font-size:larger'>Destination:<br> %s</div>
 			<div style = 'font-size:large'>The Boarding Gate Number:<div style='border:1px solid black; display:inline-block;'> %d</div></div>",$row["flightNo"],$row["departureLoc"],$row["destination"],$row["gateNo"]);
-		echo "<br>";
 		$deptime = new DateTime($row["departureTime"]);
 		$arvtime = new DateTime($row["arrivalTime"]);
 		printf("<div style = 'font-size:large'>DepTime: ");
